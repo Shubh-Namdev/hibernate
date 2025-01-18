@@ -16,7 +16,10 @@
       <!-- Show SQL on console -->
       <property name="show_sql">true</property>
       
-      <!-- Create and update the table -->
+      <!-- Drop and recreate the schema 
+      <property name="hbm2ddl.auto">create</property> -->
+      
+      <!-- create and if already then update the schema -->
       <property name="hbm2ddl.auto">create</property>
       
       <!-- Setting session context model -->
