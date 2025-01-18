@@ -13,13 +13,24 @@ public class Main {
 		//user.setId(1);
 		user.setName("Zomato");
 		
-		Address address = new Address();
-		address.setCity("Denmark");
-		address.setState("New York");
-		address.setPincode("67543");
+		Address address1 = new Address();
+		address1.setCity("Denmark");
+		address1.setState("New York");
+		address1.setPincode("67543");
 		
-		user.setHomeAddress(address);
-		user.setOfficeAddress(address);
+		Address address2 = new Address();
+		address2.setCity("Denmark");
+		address2.setState("New York");
+		address2.setPincode("67543");
+		
+		Address address3 = new Address();
+		address3.setCity("Denmark");
+		address3.setState("New York");
+		address3.setPincode("67543");
+		
+		user.getAddresses().add(address1);
+		user.getAddresses().add(address2);
+		user.getAddresses().add(address3);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
