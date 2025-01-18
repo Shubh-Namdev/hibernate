@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -12,7 +14,7 @@ import javax.persistence.Transient;
 @Entity
 @Table (name = "user_details")
 public class UserDetails {
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column (name = "user_id")
 	private int userId;
 	
@@ -21,7 +23,7 @@ public class UserDetails {
 	
 	private String address;
 	
-	@Transient
+	//@Transient
 	@Column (name = "join_date")
     private Date joinedDate;
 	private String description;
