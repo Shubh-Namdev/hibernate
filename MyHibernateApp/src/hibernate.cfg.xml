@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+   <session-factory>
+      
+      <!-- Connection settings -->
+      <property name="connection.driver_class">org.postgresql.Driver</property>
+      <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+      <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+      <property name="connection.username"></property>
+      <property name="connection.password"></property>
+      
+      <!-- Show SQL on console -->
+      <property name="show_sql">true</property>
+      
+      <!-- Create and update the table -->
+      <property name="hbm2ddl.auto">create</property>
+      
+      <!-- Setting session context model -->
+      <property name="current_session_context_class">thread</property>
+      
+      <mapping class="com.app.dto.UserDetails"/>
+      
+   </session-factory>
+</hibernate-configuration>
