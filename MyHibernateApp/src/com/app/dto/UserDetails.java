@@ -1,52 +1,51 @@
 package com.app.dto;
 
-import java.util.Date;
-
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
-//@Entity (name = "user_details")
 @Entity
 @Table (name = "user_details")
 public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	//@EmbeddedId
 	@Column (name = "user_id")
 	private int userId;
+	//private PrimaryKeyCombo userId;
 	
 	@Column (name = "user_name")
 	private String userName;
 	
-	private String address;
+	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride(name="city", column=@Column(name="home_city")),
+		@AttributeOverride(name="state", column=@Column(name="home_state")),
+		@AttributeOverride(name="pincode", column=@Column(name="home_pincode"))
+	})
+	private Address homeAddress;
 	
-	//@Transient
-	@Column (name = "join_date")
-    private Date joinedDate;
-	private String description;
+	@Embedded
+	private Address officeAddress;
 	
-	public String getAddress() {
-		return address;
+	public Address getHomeAddress() {
+		return homeAddress;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setHomeAddress(Address homeAddress) {
+		this.homeAddress = homeAddress;
 	}
-	public Date getJoinedDate() {
-		return joinedDate;
+	public Address getOfficeAddress() {
+		return officeAddress;
 	}
-	public void setJoinedDate(Date joinedDate) {
-		this.joinedDate = joinedDate;
+	public void setOfficeAddress(Address officeAddress) {
+		this.officeAddress = officeAddress;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
 	public int getUserId() {
 		return userId;
 	}
