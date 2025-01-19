@@ -39,5 +39,15 @@ public class Main {
 		session.getTransaction().commit();
 		session.close();
 		
+		//GET
+		user = null;
+		
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		user = session.get(UserDetails.class, 1);
+		//trying to elaborate the proxy class by closing the session
+		session.close();
+		System.out.println(user.getAddresses().size());
+		
 	}
 }
