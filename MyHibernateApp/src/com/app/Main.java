@@ -20,7 +20,9 @@ public class Main {
 		
 		shubh.getVehicles().add(car);
 		shubh.getVehicles().add(jeep);
-		System.out.print("");
+		
+		car.setUser(shubh);
+		jeep.setUser(shubh);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
