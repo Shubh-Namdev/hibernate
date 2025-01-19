@@ -15,13 +15,18 @@ public class Main {
 		Vehicle car = new Vehicle();
 		car.setVehicleName("Car");
 		
-		shubh.setVehicle(car);
+		Vehicle jeep = new Vehicle();
+		jeep.setVehicleName("Jeep");
+		
+		shubh.getVehicles().add(car);
+		shubh.getVehicles().add(jeep);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(shubh);
 		session.save(car);
+		session.save(jeep);
 		session.getTransaction().commit();
 		session.close();
 		

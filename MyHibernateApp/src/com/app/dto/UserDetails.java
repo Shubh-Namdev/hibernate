@@ -1,12 +1,16 @@
 package com.app.dto;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,18 +23,18 @@ public class UserDetails {
 	@Column (name = "user_name")
 	private String userName;
 	
-	@OneToOne
-	@JoinColumn(name="vehicle_id")
-	private Vehicle vehicle;
-	
-	
-	
-	public Vehicle getVehicle() {
-		return vehicle;
+	@OneToMany
+	@JoinTable(name="user_vehicle",joinColumns = @JoinColumn(name="user_id"),
+	           inverseJoinColumns = @JoinColumn(name="vehicle_id"))
+	private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
+
+	public Collection<Vehicle> getVehicles() {
+		return vehicles;
 	}
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
+	public void setVehicles(Collection<Vehicle> vehicles) {
+		this.vehicles = vehicles;
 	}
+	
 	public int getUserId() {
 		return userId;
 	}
