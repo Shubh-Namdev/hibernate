@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,9 +23,9 @@ public class UserDetails {
 	@Column (name = "user_name")
 	private String userName;
 	
-	@OneToMany
-	@JoinTable(name="user_vehicle",joinColumns = @JoinColumn(name="user_id"),
-	           inverseJoinColumns = @JoinColumn(name="vehicle_id"))
+	@ManyToMany
+	@JoinTable(name="user_vehicle", joinColumns = @JoinColumn(name="user_id"), 
+	                                inverseJoinColumns = @JoinColumn(name="vehicle_id"))
 	private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
 
 	public Collection<Vehicle> getVehicles() {
