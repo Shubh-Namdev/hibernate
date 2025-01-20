@@ -14,13 +14,9 @@ public class Main {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		UserDetails user = session.get(UserDetails.class, 6);
-		/*
-		UserDetails user = new UserDetails();
-		user.setId(3);
-		user.setName("User 3");
-		*/
-		session.delete(user);
+		UserDetails user = session.get(UserDetails.class, 7);
+		user.setName("Updates user");
+		session.update(user);
 		
 		session.getTransaction().commit();
 		session.close();
