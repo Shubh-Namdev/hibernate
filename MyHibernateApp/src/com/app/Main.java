@@ -4,26 +4,29 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.app.dto.UserDetails;
+import com.app.dto.FourWheeler;
+import com.app.dto.TwoWheeler;
 import com.app.dto.Vehicle;
 
 public class Main {
-	public static void main(String[] args) {
-		UserDetails shubh = new UserDetails();
-		shubh.setName("Zomato");
+	public static void main(String[] args) {		
+		Vehicle vehicle = new Vehicle();
+		vehicle.setVehicleName("Vehicle");
 		
-		Vehicle car = new Vehicle();
-		car.setVehicleName("Car");
-		Vehicle jeep = new Vehicle();
-		jeep.setVehicleName("Jeep");
-		
-		shubh.getVehicles().add(car);
-		shubh.getVehicles().add(jeep);
+		TwoWheeler bike = new TwoWheeler();
+		bike.setVehicleName("Yamaha FZ");
+		bike.setHandle("Bike handle");
+
+		FourWheeler car = new FourWheeler();
+		car.setVehicleName("Magnite");
+		car.setSteering("Power steering");
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.persist(shubh);
+		session.save(vehicle);
+		session.save(bike);
+		session.save(car);
 		session.getTransaction().commit();
 		session.close();
 		

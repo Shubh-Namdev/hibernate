@@ -27,6 +27,8 @@
       
       <mapping class="com.app.dto.UserDetails"/>
       <mapping class="com.app.dto.Vehicle"/>
+      <mapping class="com.app.dto.TwoWheeler"/>
+      <mapping class="com.app.dto.FourWheeler"/>
       
    </session-factory>
 </hibernate-configuration>
