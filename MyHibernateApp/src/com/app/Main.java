@@ -14,14 +14,13 @@ public class Main {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		for (int i = 1; i <= 10; i++) {
-			UserDetails user = new UserDetails();
-			user.setName("User "+i);
-			session.save(user);
-		}
+		UserDetails user = session.get(UserDetails.class, 6);
+		//System.out.println("User name is "+user.getUserName());
 		
 		session.getTransaction().commit();
 		session.close();
+		
+		System.out.println("User name is "+user.getUserName());
 		
 	}
 }
