@@ -10,8 +10,8 @@
       <property name="connection.driver_class">org.postgresql.Driver</property>
       <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
       <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
-      <property name="connection.username">postgres</property>
-      <property name="connection.password">Update@2023</property>
+      <property name="connection.username"></property>
+      <property name="connection.password"></property>
       
       <!-- Show SQL on console -->
       <property name="show_sql">true</property>
@@ -26,9 +26,6 @@
       <property name="current_session_context_class">thread</property>
       
       <mapping class="com.app.dto.UserDetails"/>
-      <mapping class="com.app.dto.Vehicle"/>
-      <mapping class="com.app.dto.TwoWheeler"/>
-      <mapping class="com.app.dto.FourWheeler"/>
       
    </session-factory>
 </hibernate-configuration>
