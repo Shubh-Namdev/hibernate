@@ -1,8 +1,6 @@
 package com.app.dto;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,8 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="vehicle")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="vehicle_type", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vehicle {
 	@Id @GeneratedValue
 	@Column(name="vehicle_id")
