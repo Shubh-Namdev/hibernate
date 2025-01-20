@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="vehicle")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Vehicle {
 	@Id @GeneratedValue
 	@Column(name="vehicle_id")
