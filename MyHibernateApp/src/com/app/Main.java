@@ -15,12 +15,15 @@ public class Main {
 		session.beginTransaction();
 		
 		UserDetails user = session.get(UserDetails.class, 6);
-		//System.out.println("User name is "+user.getUserName());
+		/*
+		UserDetails user = new UserDetails();
+		user.setId(3);
+		user.setName("User 3");
+		*/
+		session.delete(user);
 		
 		session.getTransaction().commit();
 		session.close();
-		
-		System.out.println("User name is "+user.getUserName());
 		
 	}
 }
