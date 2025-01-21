@@ -30,6 +30,11 @@ public class UserDetails {
 	public void setName(String userName) {
 		this.userName = userName;
 	}
+	@Override
+	public String toString() {
+		return "UserDetails [userId=" + userId + ", userName=" + userName + "]";
+	}
+	
 	
 	
 }

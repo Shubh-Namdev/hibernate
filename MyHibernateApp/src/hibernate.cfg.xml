@@ -20,7 +20,7 @@
       <property name="hbm2ddl.auto">create</property> -->
       
       <!-- create and if already then update the schema -->
-      <property name="hbm2ddl.auto">create</property>
+      <property name="hbm2ddl.auto">update</property>
       
       <!-- Setting session context model -->
       <property name="current_session_context_class">thread</property>
