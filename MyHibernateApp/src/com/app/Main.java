@@ -16,7 +16,9 @@ public class Main {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		Query<UserDetails> query = session.createQuery("from UserDetails where userId > 5", UserDetails.class);
+		Query<UserDetails> query = session.createQuery("from UserDetails", UserDetails.class);
+		query.setFirstResult(3);
+		query.setMaxResults(6);
 		List<UserDetails> users = query.list();
 	
 		session.getTransaction().commit();
